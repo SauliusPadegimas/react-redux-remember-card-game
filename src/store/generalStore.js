@@ -12,17 +12,17 @@ export const generalSlice = createSlice({
       state.cards = action.payload;
     },
     setOpen: (state, action) => {
-      console.log('state.opened.length ===', state.opened.length);
+      // if there are already opened cards on table
       if (state.opened.length === 1) {
-        console.log('veikia vienas');
+        // if you oepend two identical cards
         if (state.opened[0].code === action.payload.code) {
           state.guested = [...state.guested, state.opened[0], action.payload];
           state.opened = [...state.opened, action.payload];
         } else {
           state.opened = [...state.opened, action.payload];
         }
-      } else {
-        console.log('veikia nevienas');
+      } // if there are NOT already opened cards on table, or opened 2 cards and now they must be closed
+      else {
         state.opened = [action.payload];
       }
       console.log('state.opened ===', state.opened);

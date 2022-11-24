@@ -15,10 +15,7 @@ function Card({ img, code, ind }) {
 
   useEffect(() => {
     setBackside(true);
-    console.log('{ code, ind } ===', { code, ind });
-    console.log('veikia efektas');
     if (opened.some((x) => x.code === code && x.ind === ind)) {
-      console.log('vienoda');
       setBackside(false);
     }
     if (guested.some((x) => x.code === code && x.ind === ind)) {
