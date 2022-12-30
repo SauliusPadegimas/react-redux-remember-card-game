@@ -14,7 +14,11 @@ export const generalSlice = createSlice({
     setOpen: (state, action) => {
       // if there are already opened cards on table
       if (state.opened.length === 1) {
-        // if you oepend two identical cards
+        // if you hit the same card - app does nothing
+        if (state.opened[0].ind === action.payload.ind) {
+          return;
+        }
+        // if you opened two identical cards
         if (state.opened[0].code === action.payload.code) {
           state.guested = [...state.guested, state.opened[0], action.payload];
           state.opened = [...state.opened, action.payload];
@@ -25,7 +29,6 @@ export const generalSlice = createSlice({
       else {
         state.opened = [action.payload];
       }
-      console.log('state.opened ===', state.opened);
     },
   },
 });

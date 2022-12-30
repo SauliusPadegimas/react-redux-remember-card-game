@@ -26,21 +26,22 @@ img {
   width: 226px;
   height: 314px;
   background-color: rgba(50, 160, 150, 0.6);
+  border-radius: 14px;
 }
 
-.front-side {
+.face-side {
   position: absolute;
   top: 0;
   left: 0;
   backface-visibility: hidden;
   transition: all 0.8s ease;
+  transform: rotateY(180deg);
 }
 
-.back-side {
+.cover-side {
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotateY(180deg);
   backface-visibility: hidden;
   transition: all 0.8s ease;
 }
